@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/vue@latest"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Todo List</h1>
+      <input v-model="curTodo" placeholder="Enter the todo you want to add" />
+      <br />
+      <button @click="addTodo">Add</button>
+      <hr />
+
+      <!-- Todo List -->
+      <div v-for="(todo, idx) in todoArr">
+        <li key="idx">
+          <div  :class="todo.isComplete ? 'disBlock complete' : 'disBlock' ">{{ todo.item }}</div>
+
+          <button v-if="!todo.isComplete"  @click="completeTodo(todo)">{{ todo.completeStatus }}</button>
+
+          <button @click="removeTodo(todo)">&times;</button>
+        </li>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

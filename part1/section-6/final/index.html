@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/vue@latest"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Todo List</h1>
+      <input v-model="curTodo" placeholder="Enter the todo you want to add" />
+      <br />
+      <br>
+      <br>
+      <button @:click.prevent="fun_addFrontArr">Add</button>
+      <br />
+      <hr>
+      <br>
+      <br>
+      <!-- Todo List -->
+      <div v-for=" (todo,index) in frontArr ">
+        <li key="index">{{ todo }}<button @:click.prevent="deleteFrontArrEle(index)">&times;</button></li>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

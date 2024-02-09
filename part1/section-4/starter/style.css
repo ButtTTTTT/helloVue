@@ -1,0 +1,25 @@
+#app {
+  text-align: center;
+  border-radius: 5px;
+  border-color: red;
+  border-width: 1px;
+  border-style: solid;
+  width: 60%;
+
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+input {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input-error {
+  border: solid 1px red;
+}
+
+button {
+  margin-bottom: 10px;
+}

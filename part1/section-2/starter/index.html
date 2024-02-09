@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/vue@latest"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 
+        
+          v-model 绑定变量  
+
+          {{ 变量名 }} 引用变量
+
+       -->
+      <input type="text" v-model.lazy="text" />
+
+      <p>{{  text  }}</p>
+
+    </div>
+
+    <hr />
+
+    <div>
+    
+      <input class="input-text" type="text" />
+
+      <p class="p-text"></p>
+
+    </div>
+
+    <script src="vanilla.js"></script>
+    <script src="vue.js"></script>
+  </body>
+</html>

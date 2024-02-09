@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue@latest"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 
+        v-bind: 绑定元素中的任何一个属性
+      -->
+      <h1 v-bind:class="textColor">Demo</h1>
+      <!--
+         v-model 变量绑定 
+
+       -->
+      <select v-model="textColor">
+        <option value="red-text">Red</option>
+        <option value="blue-text">Blue</option>
+      </select>
+      <br />
+      <!-- 
+        点击这个btn 之后变成不可选
+       -->
+      <button v-bind:disabled="btnDisable" v-on:click="handleClick">
+        Click
+      </button>
+    </div>
+  </body>
+
+  <script>
+    const app = {
+      data() {
+        return {
+          textColor: "red-text",
+          btnDisable: false,
+        };
+      },
+
+      methods: {
+        handleClick() {
+          console.log("demo");
+          // 如果是一个类的属性的话 需要添加this 来选择对象
+          this.btnDisable = true;
+        },
+      },
+    };
+
+    Vue.createApp(app).mount("#app");
+  </script>
+</html>

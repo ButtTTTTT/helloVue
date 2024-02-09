@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue@latest"></script>
+  </head>
+  <body>
+    <div id="app">
+      <form>
+        <input
+          type="text"
+          v-bind:class="username_is_error"
+          placeholder="enter your username"
+          v-model="username"
+        />
+        <br />
+        <input
+          type="password"
+          v-bind:class="password_is_error"
+          placeholder="enter your password"
+          v-model="password"
+        />
+        <br />
+
+        <button type="submit" v-on:click.prevent="submit">Login</button>
+      </form>
+    </div>
+
+    <script>
+      const app = {
+        data() {
+          return {
+            username: "",
+            password: "",
+
+            username_is_error: "",
+            password_is_error: "",
+          };
+        },
+
+        methods: {
+          submit() {
+            this.password_is_error = this.username_is_error = "";
+
+            if (this.username.length < 3 || this.password.length < 3) {
+              if (this.username.length < 3) {
+                this.username_is_error = "input-error";
+              }
+
+              if (this.password.length < 3) {
+                this.password_is_error = "input-error";
+              }
+
+              alert("The input length smaller than 3");
+              return;
+            }
+
+            alert(
+              `Your input is username: ${this.username}; password: ${this.password}`
+            );
+          },
+        },
+      };
+
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>
