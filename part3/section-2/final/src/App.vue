@@ -10,7 +10,12 @@
     Circle Rotate
   </CircleProperty>
 
-  <Circle :circleClass="circleClass" :textColor="textColor" :circleSize="circleSize" :circleAngle="circleAngle" />
+  <Circle
+    :circleClass="circleClass"
+    :textColor="textColor"
+    :circleSize="circleSize"
+    :circleAngle="circleAngle"
+  />
 </template>
 
 <script>
@@ -19,27 +24,30 @@ import TextColor from "./components/TextColor.vue";
 import Circle from "./components/Circle.vue";
 import CircleProperty from "./components/CircleProperty.vue";
 import { ref } from "vue";
+
 export default {
   setup() {
     const isPurple = ref(false);
     const textColor = ref("");
     const size = ref(200);
     const angle = ref(0);
+
     const togglePurple = () => {
       isPurple.value = !isPurple.value;
-    }
+    };
 
     const changeSize = (event) => {
       size.value = event.target.value;
-    }
+    };
 
     const changeAngle = (event) => {
       angle.value = event.target.value;
-    }
+    };
 
     const changeTextColor = (event) => {
       textColor.value = event.target.value;
-    }
+    };
+
     return {
       isPurple,
       textColor,
@@ -48,9 +56,10 @@ export default {
       togglePurple,
       changeSize,
       changeAngle,
-      changeTextColor
+      changeTextColor,
     };
   },
+
   computed: {
     circleClass() {
       return {
@@ -71,10 +80,6 @@ export default {
     },
   },
 
-  methods: {
-
-  },
-
   components: {
     TogglePurple,
     TextColor,
@@ -89,7 +94,6 @@ body {
   font-size: 20px;
   font-family: sans-serif;
 }
-
 label {
   margin-bottom: 20px;
   font-size: 20px;
